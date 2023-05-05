@@ -3,10 +3,10 @@
     background-color: rgb(15, 15, 19,0.999);
 }
 .sign-up{
-    color: rgb(145, 133, 238);
+    color: #4338ca;
 }
 .sign-up:hover{
-    color: rgb(176, 167, 241);
+    color: #4f42dc;
 }
 .input{
     margin-top: 5px;

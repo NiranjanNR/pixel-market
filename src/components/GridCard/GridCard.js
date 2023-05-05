@@ -3,9 +3,7 @@ import Card from '../Card/Card'
 
 const GridCard = () => {
     return (
-        <div className='ml-6 text-white'>
-            <div className='text-5xl ml-8 font-semibold tracking-wide pb-2 mb-14'>Hot Bid</div>
-
+        <div id="Cards" className='ml-6 overflow-x-scroll'>
             <div className='grid grid-cols-4'>
                 <div>
                     <Card image={"https://unft-marketplace.vercel.app/_next/image?url=https%3A%2F%2Fimgix.cosmicjs.com%2Fc3d63a90-fa2a-11ec-b458-99bc1b8dd3ef-card-pic-4.jpg&w=1920&q=60"} name={"Mood"} price={19} number={31} />

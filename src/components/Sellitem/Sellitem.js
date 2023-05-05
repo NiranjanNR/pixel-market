@@ -3,7 +3,7 @@ import Card from '../Card/Card'
 
 const Sellitem = () => {
     return (
-        <div className='flex m-20 mt-14 text-white'>
+        <div id="SellItem" className='flex m-20 mt-14 text-white'>
             <div className='min-w-[800px] min-h-[100vh] ml-14'>
                 <div className='text-6xl font-semibold tracking-wide pb-2'>Sell single collectible</div>
                 <div className='text-md text-gray-300 font-semibold pb-2 mt-6'>Upload file</div>

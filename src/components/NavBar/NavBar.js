@@ -3,7 +3,7 @@ import './NavBar.css'
 
 const NavBar = () => {
     return (
-        <div className='mx-3 border-b border-gray-500/25 pb-6 	'>
+        <div className='md:mx-3 border-b border-gray-500/25 pb-6 z-index'>
             <div className=' flex justify-center text-slate-100 pt-6'>
                 <div className='mr-auto text-3xl ml-10 font-extrabold'>
                     <p className=''>Pixel Market</p>
