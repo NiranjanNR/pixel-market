@@ -1,0 +1,65 @@
+.login{
+    height: 100vh;
+    background-color: rgb(15, 15, 19,0.999);
+}
+.sign-up{
+    color: rgb(145, 133, 238);
+}
+.sign-up:hover{
+    color: rgb(176, 167, 241);
+}
+.input{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 66px;
+    width: 400px;
+    border-radius: 5px;
+}
+.login-button{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+    height: 66px;
+    width: 400px;
+    border-radius: 5px;
+}
+.login-button2{
+
+    letter-spacing: 0.5px;
+    height: 60px;
+    width: 400px;
+}
+.border1 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 64px;
+    width: 404px;
+    position: relative;
+    background: linear-gradient(to right, rgb(51, 196, 22), rgb(243, 255, 79));
+    border-radius: 4px;
+    padding: 1px;
+}
+.border2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 64px;
+    width: 404px;
+    position: relative;
+    background: linear-gradient(to left, rgb(226, 255, 180), rgb(253 230 138));
+    border-radius: 4px;
+    padding: 2px;
+}
+.border3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 64px;
+    width: 404px;
+    position: relative;
+    background: linear-gradient(to right, rgb(125, 202, 0), rgb(255, 235, 155));
+    border-radius: 4px;
+    padding: 2px;
+}
+.inner{
+    background: rgb(15, 15, 19,0.999);
+    border-radius: 4px;
+}
