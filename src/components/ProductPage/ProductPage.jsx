@@ -1,10 +1,10 @@
-import NavBar from "../NavBar/NavBar"
+
 
 const ProductPage = () => {
 
 
     return (
-        <section className="p-12 bg-[#141416]">
+        <section className="p-12 bg-[#141416] my-40">
             <div className="container flex gap-8 justify-center max-lg:flex-col">
                 <div className="w-full">
                     <img className="rounded-[16px] mx-auto object-cover min-h-full min-w-[50%] max-h-full max-w-full " src="https://ezway.s3.amazonaws.com/jondo/nft/nft-header-2.jpg" alt="Product Image" />

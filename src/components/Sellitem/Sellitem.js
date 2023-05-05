@@ -4,7 +4,7 @@ import Card from '../Card/Card'
 const Sellitem = () => {
     return (
         <div className='flex m-20 mt-14 text-white'>
-            <div className=' w-[800px] h-[100vh] ml-14'>
+            <div className='min-w-[800px] min-h-[100vh] ml-14'>
                 <div className='text-6xl font-semibold tracking-wide pb-2'>Sell single collectible</div>
                 <div className='text-md text-gray-300 font-semibold pb-2 mt-6'>Upload file</div>
                 <div className='text-sm text-gray-500 font-normal pb-2 mt-1'>Drag or choose your file to upload</div>
@@ -51,7 +51,7 @@ const Sellitem = () => {
                         <div className=' w-[140px] h-[100px] bg-gray-500/25 rounded-lg px-6 flex items-center justify-center' >Artwork</div>
                     </div>
                 </div>
-                <button className='text-xl font-semibold px-2 border border-gray-500/25 px-6 mt-20 bg-indigo-700 hover:bg-indigo-600 w-[200px] h-[50px] mb-36'>Sell Item</button>
+                <button className='text-xl font-semibold border border-gray-500/25 px-6 mt-20 bg-indigo-700 hover:bg-indigo-600 w-[200px] h-[50px] mb-20'>Sell Item</button>
             </div>
             <div>
                 <Card image={"https://www.cnet.com/a/img/resize/e547a2e4388fcc5ab560f821ac170a59b9fb0143/hub/2021/12/13/d319cda7-1ddd-4855-ac55-9dcd9ce0f6eb/unnamed.png?auto=webp&fit=crop&height=1200&width=1200"} name={"NFT"} price={19} number={3}/>
