@@ -3,7 +3,7 @@ import React from 'react'
 
 const LandingPage = () => {
   return (
-    <section className='px-8 text-white flex justify-center lg:items-center'>
+    <section className='px-8 py-6 text-white flex justify-center lg:items-center min-h-screen'>
       <div className='flex lg:justify-between flex-col-reverse lg:flex-row'>
         <div className='flex-grow w-full lg:w-[500px] lg:mx-auto text-center lg:text-left lg:self-center'>
           <div className='text-xl text-gray-500 font-semibold pb-2'>THE NEW CREATIVE ECONOMY</div>
