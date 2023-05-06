@@ -3,13 +3,13 @@ import React from 'react'
 const Card = (props) => {
 
     return (
-        <div className="w-[190px] h-[770px] rounded-xl flex justify-center m-6 bg-mine">
+        <div className="lg:w-[690px] lg:h-[770px] w-[290px] h-[470px] rounded-xl flex justify-center m-6">
             <div>
-                <div className='pb-4 border-b border-gray-500/60'>
-                    <img src={props.image} alt="" className="w-[490px] h-[600px] object-cover rounded-xl" />
+                <div className='pb-4 border-b border-gray-500/60 flex justify-center'>
+                    <img src={props.image} alt="" className="lg:w-[490px] lg:h-[600px] w-[190px] h-[300px] object-cover rounded-xl" />
                 </div>
-                <div className="pt-4 flex ">
-                    <div className='h-[260px] w-[400px] bg--50'>
+                <div className="pt-4 flex">
+                    <div className='lg:h-[260px] lg:w-[400px] w-[190px] h-[300px]'>
                         <div className='text-md text-gray-300 font-semibold '>{props.name}</div>
                         <div className='text-md text-gray-500 font-normal '>{props.number} items</div>
                     </div>

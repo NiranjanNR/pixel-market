@@ -1,5 +1,5 @@
 import React from 'react'
-import { BsInstagram,BsYoutube,BsLinkedin,BsBasketFill } from "react-icons/bs";
+import { BsInstagram,BsYoutube,BsLinkedin } from "react-icons/bs";
 const Footer = () => {
   return (
     <div className="p-20 bg-[#141416] border-t border-gray-500/25 mt-4 ">
