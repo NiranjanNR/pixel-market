@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# Pixel-Market
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Index:
+1. [Scaling our Website](#h1)
+2. [Docker Containerisation](#h2)
+3. [Setting up Kubernetes](#h3)
+4. [Scaling the app](#h4)
+5. [Our Solution](#h5)
+<a id="h1"></a>
+### Scaling our Website
+As part of our consequence, we were tasked with bringing scalablity to our application. To implement this as per the suggestions offered, we decided to go ahead with Kubernetes after containerising our React App with docker. 
+<a id="h2"></a>
+### Docker Containerisation
+From the Dockerfile and dockerignore files, it is quite evident that our attempt to containerise the application has not gone in vain. Using the Docker Hub of one of our developers, we managed to make the application into a container and have its image be part of the Kuberenetes cluster. 
+Our application was then packaged and sent as an image to docker hub. This is shown in the screenshot attached below: <br>
+![Docker-proof-container](https://user-images.githubusercontent.com/73834506/236643100-2d073b44-eb06-47d7-9100-c62a999313f6.png)
+<a id="h3"></a>
+### Setting up Kubernetes
+Based on the deployment.yaml and load-balancer.yaml, we tried setting up Kubernetes in our application. Setting up minikube and applying the settings in deployment.yaml file, we were able to run our application locally. To facilitate scalablity, we also applied the load-balancer.yaml configuration. Based on the output shown in the screenshot, we can see that the application can run on seperate nodes.
+![Setting-up-kubernetes](https://user-images.githubusercontent.com/73834506/236643381-23af0d7b-0e20-4576-9c52-d634fd98fa54.png)
+![live-local-hosted](https://user-images.githubusercontent.com/73834506/236643437-f7729cad-ef27-4819-8808-59db1b67044f.png)
+The above screenshot shows our application running on a system on the port specified in the nodePort of the deployment.yaml file.
+> ⚠️ <br>
+> Unfortunately, the application could not be exposed to requests from external sources due to an issue with the external IP being stuck in the pending state as shown in the first screenshot of this section.
 
-## Available Scripts
+<a id="h4"></a>
+### Scaling our Application
+To simulate the demand of the application, the screenshot below shows that the application is indeed scalable and can increase or decrease it's replicas as required.
+![scaling demo](https://user-images.githubusercontent.com/73834506/236643428-1178db70-4b90-4243-a1a9-8dc2628e87bc.png)
+> **Note** <br>
+> Since the application could be exposed not to external requests, we could not set up autoscaling. But our screenshots prove that had we recieved cloud support, it would have been a possiblity.
+<a id="h5"></a>
+### Our Solution
+> 🚨
+> We tried various cloud serivces that offer Kubernetes support including Microsoft Azure, Google Cloud and AWS. Azure gave a warning of exceeding Resource Allocation on the free tier even when we used the smallest package they had to offer, while Google Cloud and AWS requested a bank card for registering with their services. 
 
-In the project directory, you can run:
+To further accomodate our tasks, we decided to use services that offer scalablity as a default option i.e Netlify for deployment and Google's Firebase for the backend support
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
