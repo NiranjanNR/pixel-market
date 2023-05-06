@@ -3,9 +3,9 @@ import React from 'react'
 
 const LandingPage = () => {
   return (
-    <div className='text-white flex flex-col lg:flex-row justify-center lg:items-center h-[90vh]'>
-      <div className='lg:flex lg:justify-between'>
-        <div className='w-full lg:w-[500px] lg:mx-auto text-center lg:text-left lg:self-center'>
+    <section className='px-8 text-white flex justify-center lg:items-center'>
+      <div className='flex lg:justify-between flex-col-reverse lg:flex-row'>
+        <div className='flex-grow w-full lg:w-[500px] lg:mx-auto text-center lg:text-left lg:self-center'>
           <div className='text-xl text-gray-500 font-semibold pb-2'>THE NEW CREATIVE ECONOMY</div>
           <div className='text-4xl lg:text-6xl font-semibold tracking-wide pb-2'>Share your creations with the world</div>
           <div className='text-lg text-gray-500 font-light pb-10'>Collect and sell digital art, powered by the best online tools.</div>
@@ -18,11 +18,11 @@ const LandingPage = () => {
             </a>
           </div>
         </div>
-        <div className='hidden lg:block lg:w-[calc(100% - 500px)] mt-8 lg:mt-0'>
+        <div className='flex-grow lg:block lg:w-[calc(100% - 500px)] mt-8 lg:mt-0'>
           <img src='https://i.ibb.co/DVHBGCW/Screenshot-2023-05-05-at-1-35-00-PM.png' alt='' />
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 
