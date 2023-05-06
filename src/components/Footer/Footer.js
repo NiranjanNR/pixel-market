@@ -8,8 +8,8 @@ const Footer = () => {
          
           <div>
             <h5 className="text-xl font-bold mb-2.5">The New Creative </h5>
-            <h5 className="text-xl font-bold mb-2.5"> Economy</h5>
-            <BsBasketFill className='w-12 h-12'/>
+            <h5 className="text-xl font-bold mb-2.5 ml-8"> Economy</h5>
+            <BsBasketFill className='w-12 h-12 ml-12'/>
           </div>
           <div>
             <h5 className="font-bold mb-2.5 text-xl">Quick Links</h5>
