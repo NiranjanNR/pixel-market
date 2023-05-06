@@ -1,0 +1,20 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: pixel-market
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pixel-market
+  template:
+    metadata:
+      labels:
+        app: pixel-market
+    spec:
+      containers:
+      - name: pixel-market
+        image: takashi069s/pixel-market:latest
+        imagePullPolicy: Always 
+        ports:
+        - containerPort: 80
