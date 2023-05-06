@@ -2,14 +2,14 @@ import React from 'react'
 import { BsInstagram,BsYoutube,BsLinkedin,BsBasketFill } from "react-icons/bs";
 const Footer = () => {
   return (
-    <div className="p-20 bg-[#23262F]">
+    <div className="p-20 bg-[#141416] border-t border-gray-500/25 mt-4 ">
       <footer>
-        <div className="grid sm:grid-cols-3 grid-cols-1 gap-4 text-white">
+        <div className="grid sm:grid-cols-3 grid-cols-1 gap-4 text-white place-items-center">
          
           <div>
             <h5 className="text-xl font-bold mb-2.5">The New Creative </h5>
             <h5 className="text-xl font-bold mb-2.5 ml-8"> Economy</h5>
-            <BsBasketFill className='w-12 h-12 ml-12'/>
+            <img className="h-16 ml-6" src={require('../../assets/logo_text.png')} alt="PIXEL MARKET" />
           </div>
           <div>
             <h5 className="font-bold mb-2.5 text-xl">Quick Links</h5>
