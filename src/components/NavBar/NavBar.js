@@ -3,10 +3,10 @@ import './NavBar.css'
 
 const NavBar = () => {
     return (
-        <div className='md:mx-3 border-b border-gray-500/25 pb-6 z-index'>
-            <div className=' flex justify-center text-slate-100 pt-6'>
+        <div className='md:mx-3 border-b border-gray-500/25 z-index'>
+            <div className='py-4 flex justify-center items-center text-slate-100'>
                 <div className='mr-auto text-3xl ml-10 font-extrabold'>
-                    <p className=''>Pixel Market</p>
+                    <span><img className="h-16" src={require('../../assets/logo_text.png')} alt="PIXEL MARKET" /></span>
                 </div>
                 <div className=' flex justify-center'>
                     <div className=' font-semibold text-lg '>
