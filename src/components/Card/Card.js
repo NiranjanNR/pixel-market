@@ -3,6 +3,7 @@ import React from 'react'
 const Card = (props) => {
 
     return (
+        <div className=''>
         <div className="w-[290px] h-[570px] rounded-xl flex justify-center m-6 bg-mine">
             <div>
                 <div className='pb-4 border-b border-gray-500/60'>
@@ -18,6 +19,7 @@ const Card = (props) => {
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     );
 }
