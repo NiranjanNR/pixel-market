@@ -7,7 +7,7 @@ const ProductPage = () => {
         <section className="p-12 bg-[#141416] my-40">
             <div className="container flex gap-8 justify-center max-lg:flex-col">
                 <div className="w-full">
-                    <img className="rounded-[16px] mx-auto object-cover min-h-full min-w-[50%] max-h-full max-w-full " src="https://ezway.s3.amazonaws.com/jondo/nft/nft-header-2.jpg" alt="Product Image" />
+                    <img className="rounded-[16px] mx-auto object-cover min-h-full min-w-[50%] max-h-full max-w-full " src="https://ezway.s3.amazonaws.com/jondo/nft/nft-header-2.jpg" alt="Product-1" />
                 </div>
                 <div className="flex flex-col w-full gap-2">
                     <h2 className="text-[40px] text-[#FCFCFD]">CHEF MONKEY</h2>
