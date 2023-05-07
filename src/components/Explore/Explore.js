@@ -18,7 +18,7 @@ const Explore = () => {
       querySnapshot.forEach((doc) => {
         todosArr.push({ ...doc.data(), id: doc.id });
       });
-      setTodos(todosArr);
+      setTodos(todosArr.slice(0,5));
     });
     return () => unsubscribe();
   }, []);

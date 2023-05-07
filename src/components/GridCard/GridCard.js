@@ -16,10 +16,12 @@ const GridCard = () => {
         const q = query(collection(db, 'digital-art'));
         const unsubscribe = onSnapshot(q, (querySnapshot) => {
             let todosArr = [];
+            let count = 0
             querySnapshot.forEach((doc) => {
                 todosArr.push({ ...doc.data(), id: doc.id });
             });
-            setTodos(todosArr);
+            
+            setTodos(todosArr.slice(0,4));
         });
         return () => unsubscribe();
     }, []);
