@@ -19,19 +19,23 @@ const NavBar = () => {
             </Link>
           </div>
           <div className='hidden md:flex font-semibold text-lg'>
-            <button className='hover:text-white/75 px-5'>About us</button>
-            <button className='hover:text-white/75 px-5'>Discover</button>
-            <button className='hover:text-white/75 px-5'>Support</button>
-            <button className='hover:text-white/75 px-5'>Blog</button>
+            <Link to="/aboutus">
+              <button className='hover:text-white/75 px-5 transition-all ease-in-out active:scale-95 hover-underline-animation'>About us</button>
+            </Link>
+            <button className='hover:text-white/75 px-5 transition-all ease-in-out active:scale-95 hover-underline-animation'>Discover</button>
+            <button className='hover:text-white/75 px-5 transition-all ease-in-out active:scale-95 hover-underline-animation'>Support</button>
+            <button className='hover:text-white/75 px-5 transition-all ease-in-out active:scale-95 hover-underline-animation'>Blog</button>
           </div>
           <div className='md:hidden'>
             <button className='text-white text-xl font-bold mr-5 scale-125' onClick={toggleMenu}>
               {isMenuOpen ? (<VscChromeClose/>) : (<TiThMenu/>)}
             </button>
           </div>
-          <div className={`md:hidden absolute top-16 right-0 bg-black/90 w-full ${isMenuOpen ? '' : 'hidden'}`}>
+          <div className={`md:hidden absolute top-16 right-0 bg-[#141416] w-full ${isMenuOpen ? '' : 'hidden'}`}>
             <div className='flex flex-col items-center text-lg py-2'>
-              <button className='hover:text-white/75 my-2' onClick={toggleMenu}>About us</button>
+              <Link to="/aboutus">
+                <button className='hover:text-white/75 my-2' onClick={toggleMenu}>About us</button>
+              </Link>
               <button className='hover:text-white/75 my-2' onClick={toggleMenu}>Discover</button>
               <button className='hover:text-white/75 my-2' onClick={toggleMenu}>Support</button>
               <button className='hover:text-white/75 my-2' onClick={toggleMenu}>Blog</button>

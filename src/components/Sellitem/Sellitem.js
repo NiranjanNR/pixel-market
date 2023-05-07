@@ -8,6 +8,7 @@ import {
     collection,
     addDoc,
   } from 'firebase/firestore';
+import {Link} from 'react-router-dom'
 
 const Sellitem = () => {
 
@@ -47,8 +48,8 @@ const Sellitem = () => {
     };
 
     const createTask = async () => {
-        await addDoc(listCollectionRef, { id:formData['id'] ,image:"https://images.unsplash.com/photo-1683360467368-45591bbccaeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" ,title:formData['title'] ,description:formData['description'] ,count:formData['count'] ,seller:formData['seller'] ,price:formData['price'] ,royalties:formData['royalties']})
-        await addDoc(listCollectionRef2, { id:formData['id'] ,image:"https://images.unsplash.com/photo-1683360467368-45591bbccaeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" ,title:formData['title'] ,description:formData['description'] ,count:formData['count'] ,seller:formData['seller'] ,price:formData['price'] ,royalties:formData['royalties']})
+        await addDoc(listCollectionRef, { id:formData['id'] ,image:formData['imageLink'] ,title:formData['title'] ,description:formData['description'] ,count:formData['count'] ,seller:formData['seller'] ,price:formData['price'] ,royalties:formData['royalties']})
+        await addDoc(listCollectionRef2, { id:formData['id'] ,image:formData['imageLink'] ,title:formData['title'] ,description:formData['description'] ,count:formData['count'] ,seller:formData['seller'] ,price:formData['price'] ,royalties:formData['royalties']})
 
     }
 
@@ -78,14 +79,17 @@ const Sellitem = () => {
 
     return (
         <div>
-            <div className="headers flex flex-col max-w-lg justify-center items-center">
+            <div className="headers flex flex-col justify-center items-center">
                 <div className='text-3xl text-center mt-9 text-white md:text-5xl lg:text-6xl font-semibold tracking-wide pb-2'>Sell single collectible</div>
-                <button className='text-xl max-w-lg font-semibold border border-gray-500/25 p-6 mx-4 hover:bg-gray-500/25'>Discover More</button>
+                <br></br>
+                <Link to="/">
+                    <button className='text-lg max-h-[50px] max-w-[200px] font-semibold mt-4 lg:mt-0 lg:ml-8 border border-gray-500/25 p-2 mx-4 bg-indigo-700 hover:bg-indigo-600 text-white transition-all ease-in-out active:scale-95 rounded-sm'>Go Back</button>
+                </Link>
             </div>
             
             <section id="SellItem" className='xl:flex max-xl:flex-col-reverse xl:gap-12 px-8 my-20 text-white'>
                 <div className='flex-grow flex flex-col min-h-[100vh]'>
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit} className="max-sm:flex max-sm:flex-col max-sm:items-center">
                         <div className='text-md text-gray-300 font-semibold pb-2 mt-6'>Provide Image Link (Preferred Image Size: 290px X 540px)</div>
                         <input name='imageLink' className='w-full h-[50px] bg-gray-500/25 rounded-lg px-6' type="text" onChange={handleChange}/>
                         <div className='text-md text-gray-300 font-semibold pb-2 mt-6'>Item Details</div>
@@ -135,7 +139,7 @@ const Sellitem = () => {
                             </div>
 
                         </div>
-                        <button type='submit' className='p-4 max-w-[200px] text-xl font-semibold border border-gray-500/25 px-6 mt-20 bg-indigo-700 hover:bg-indigo-600 mb-20'>Sell Item</button>
+                        <button type='submit' className='p-4 max-w-[200px] text-xl font-semibold border border-gray-500/25 px-6 mt-20 bg-indigo-700 hover:bg-indigo-600 mb-20 transition-all ease-in-out active:scale-95 rounded-sm'>Sell Item</button>
                     </form>
                 </div>
                 <div className='flex justify-center'>

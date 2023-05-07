@@ -3,6 +3,7 @@ import NavBar from '../NavBar/NavBar'
 import GridCard from '../GridCard/GridCard'
 import Footer from '../Footer/Footer'
 import Explore from '../Explore/Explore'
+import {Link} from 'react-router-dom'
 
 
 const LandingPage = () => {
@@ -17,12 +18,12 @@ const LandingPage = () => {
           <div className='text-4xl lg:text-6xl font-semibold tracking-wide pb-2'>Share your creations with the world</div>
           <div className='text-lg text-gray-500 font-light pb-10'>Collect and sell digital art, powered by the best online tools.</div>
           <div className='flex flex-col lg:flex-row'>
-            <a href="#Cards">
-              <button className='text-xl font-semibold border border-gray-500/25 p-6 mx-4 hover:bg-gray-500/25'>Discover More</button>
+            <a href="#Explore">
+              <button className='text-xl font-semibold border border-gray-500/25 p-6 mx-4 hover:bg-gray-500/25 transition-all ease-in-out active:scale-95 rounded-sm'>Discover More</button>
             </a>
-            <a href="/sellitem">
-              <button className='text-xl font-semibold mt-4 lg:mt-0 lg:ml-8 border border-gray-500/25 p-6 mx-4 bg-indigo-700 hover:bg-indigo-600'>Create Item</button>
-            </a>
+            <Link to="/sellitem">
+              <button className='text-xl font-semibold mt-4 lg:mt-0 lg:ml-8 border border-gray-500/25 p-6 mx-4 bg-indigo-700 hover:bg-indigo-600 transition-all ease-in-out active:scale-95 rounded-sm'>Create Item</button>
+            </Link>
           </div>
         </div>
         <div className='flex-grow lg:block lg:w-[calc(100% - 500px)] mt-8 lg:mt-0'>
@@ -31,6 +32,7 @@ const LandingPage = () => {
       </div>
     </section>
     </div>
+    <h1 className='text-[3rem] text-center text-white min-h-[40px]'>Your Top Collection</h1>
     <GridCard/>
     <Explore/>
     <Footer/>

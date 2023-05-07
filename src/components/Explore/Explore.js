@@ -24,7 +24,7 @@ const Explore = () => {
   }, []);
 
   return (
-    <div className='text-white '>
+    <div id="Explore" className='text-white '>
       <div className=' text-5xl ml-8 font-semibold tracking-wide pb-2 mt-5 flex justify-center md:text-left'>Explore These Amazing Works</div>
       <div className='lg:mr-10'>
         <div className='mt-5 lg:flex justify-center'>
