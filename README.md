@@ -6,6 +6,7 @@
 3. [Setting up Kubernetes](#h3)
 4. [Scaling the app](#h4)
 5. [Our Solution](#h5)
+6. [Website Mockups](#h6)
 <a id="h1"></a>
 ### Scaling our Website
 As part of our consequence, we were tasked with bringing scalablity to our application. To implement this as per the suggestions offered, we decided to go ahead with Kubernetes after containerising our React App with docker. 
@@ -34,5 +35,11 @@ To simulate the demand of the application, the screenshot below shows that the a
 > 🚨
 > We tried various cloud serivces that offer Kubernetes support including Microsoft Azure, Google Cloud and AWS. Azure gave a warning of exceeding Resource Allocation on the free tier even when we used the smallest package they had to offer, while Google Cloud and AWS requested a bank card for registering with their services. 
 
+
 To further accomodate our tasks, we decided to use services that offer scalablity as a default option i.e Netlify for deployment and Google's Firebase for the backend support
+<a id="h6"></a>
+## Mockups:
+![sitemkp1](https://user-images.githubusercontent.com/73834506/236654718-fc52d6cc-af83-4aef-8644-c0c7de78b55b.JPG)
+![sitemkp3](https://user-images.githubusercontent.com/73834506/236654761-c980a128-4202-45b9-b367-2fef5bef1aef.JPG)
+![sitemkp2](https://user-images.githubusercontent.com/73834506/236654768-6d073837-5d41-4817-bcb3-31ba32b3d429.JPG)
 
