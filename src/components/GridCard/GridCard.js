@@ -25,7 +25,7 @@ const GridCard = () => {
             <div className='flex flex-row gap-4'>
                 {todos.map((todo) => (
                     <div key={todo.id}>
-                        <Card image={todo.image} id={todo.id} name={todo.title} price={todo.price} number={todo.count} />
+                        <Card image={todo.image} id={todo.id} title={todo.title} price={todo.price} count={todo.count} />
                     </div>
                 ))}
             </div>

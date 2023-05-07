@@ -12,7 +12,7 @@ const Card = (props) => {
                         <img src={props.image} alt="" className="w-[290px] h-[400px] object-cover rounded-xl" />
                     </div>
                     <div className="pt-4 flex ">
-                        <div className='h-[60px] w-[200px] bg--50'>
+                        <div className='h-[60px] w-[200px]'>
                             <div className='text-md text-gray-300 font-semibold '>{props.title}</div>
                             <div className='text-md text-gray-500 font-normal '>{props.count} items</div>
                         </div>
