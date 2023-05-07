@@ -2,12 +2,28 @@ import React from 'react'
 import { useState } from 'react';
 // import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
-import  db  from '../../firebase.js'
+import db from '../../firebase.js'
 import Card from '../Card/Card'
+import {
+    collection,
+    addDoc,
+  } from 'firebase/firestore';
 
 const Sellitem = () => {
 
+    const listCollectionRef = collection(db , "digital-art");
+    const listCollectionRef2 = collection(db , "explore-digart");
+
+    // const [title, setTitle] = useState(0);
+    // const [description, setDescription] = useState(0);
+    // const [color, setColor] = useState(0);
+    // const [count, setCount] = useState(0);
+    // const [seller, setSeller] = useState(0);
+    // const [price, setPrice] = useState(0);
+    // const [royalties, setRoyalties] = useState(0);
+
     const [formData, setFormData] = useState({
+        id:0,
         title: '',
         imageLink:'https://www.cnet.com/a/img/resize/e547a2e4388fcc5ab560f821ac170a59b9fb0143/hub/2021/12/13/d319cda7-1ddd-4855-ac55-9dcd9ce0f6eb/unnamed.png?auto=webp&fit=crop&height=1200&width=1200',
         description: '',
@@ -30,32 +46,36 @@ const Sellitem = () => {
         });
     };
 
-    
+    const createTask = async () => {
+        await addDoc(listCollectionRef, { id:formData['id'] ,image:"https://images.unsplash.com/photo-1683360467368-45591bbccaeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" ,title:formData['title'] ,description:formData['description'] ,count:formData['count'] ,seller:formData['seller'] ,price:formData['price'] ,royalties:formData['royalties']})
+        await addDoc(listCollectionRef2, { id:formData['id'] ,image:"https://images.unsplash.com/photo-1683360467368-45591bbccaeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" ,title:formData['title'] ,description:formData['description'] ,count:formData['count'] ,seller:formData['seller'] ,price:formData['price'] ,royalties:formData['royalties']})
+
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-          await db.collection('digital-art').add({
-            ...formData,
-            collection: selectedCollection
-          });
-          console.log('Item added to Firestore');
-          setFormData({
-            title: '',
-            imageLink:'https://www.cnet.com/a/img/resize/e547a2e4388fcc5ab560f821ac170a59b9fb0143/hub/2021/12/13/d319cda7-1ddd-4855-ac55-9dcd9ce0f6eb/unnamed.png?auto=webp&fit=crop&height=1200&width=1200',
-            description: '',
-            color: '',
-            count: '',
-            seller: '',
-            price: '',
-            royalties: '',
-            collection: '',
-          });
-          setSelectedCollection('');
+            
+            createTask();
+
+            console.log('Item added to Firestore');
+            setFormData({
+                id:0,
+                title: '',
+                description: '',
+                color: '',
+                count: '',
+                seller: '',
+                price: '',
+                royalties: '',
+                collection: '',
+            });
+            setSelectedCollection('');
         } catch (error) {
-          console.error('Error adding item to Firestore:', error);
+            console.error('Error adding item to Firestore:', error);
         }
-      };
-    
+    };
+
     return (
         <div>
             <div className="headers flex flex-col max-w-lg justify-center items-center">

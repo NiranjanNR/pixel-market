@@ -38,7 +38,7 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h5 className="text-xl font-bold mb-2.5">About Cosmic</h5>
+            <h5 className="text-xl font-bold mb-2.5">About Pixel Market</h5>
             <ul className="list-none mb-0 ">
               <li className='mb-2'>
                 

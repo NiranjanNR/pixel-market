@@ -35,7 +35,7 @@ const NavBar = () => {
               <button className='hover:text-white/75 my-2' onClick={toggleMenu}>Blog</button>
             </div>
           </div>
-          <button className='hidden md:block text-xl font-bold ml-auto pr-10 sign-up'>Login</button>
+          <div className='hidden md:block text-xl font-bold ml-auto pr-10 sign-up'>Welcome</div>
         </div>
       </div>
 
