@@ -2,6 +2,8 @@ import { useState } from "react";
 import './NavBar.css'
 import { VscChromeClose } from "react-icons/vsc";
 import { TiThMenu } from "react-icons/ti";
+import { Link } from "react-router-dom";
+
 const NavBar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -12,9 +14,9 @@ const NavBar = () => {
         <div className='md:mx-3 border-b border-gray-500/25 z-index'>
         <div className='py-4 flex justify-center items-center text-slate-100'>
           <div className='mr-auto text-3xl ml-10 font-extrabold'>
-            <span>
+            <Link to={`/`} >
               <img className="h-16" src={require('../../assets/logo_text.png')} alt="PIXEL MARKET" />
-            </span>
+            </Link>
           </div>
           <div className='hidden md:flex font-semibold text-lg'>
             <button className='hover:text-white/75 px-5'>About us</button>

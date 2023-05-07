@@ -1,31 +1,59 @@
+import React from 'react'
+import { useEffect, useState } from 'react'
+import db from '../../firebase'
+import { collection, getDocs } from 'firebase/firestore';
 
+import Card from '../Card/Card'
+import { useParams } from 'react-router-dom';
+import ProductCard from '../ProductCard/ProductCard';
+import NavBar from '../NavBar/NavBar';
 
 const ProductPage = () => {
 
+    const { id } = useParams();
+
+    const [todos, setTodos] = useState([]);
+    const [requiredProduct, setRequiredProduct] = useState([])
+
+    const listCollectionRef = collection(db, "digital-art");
+
+    useEffect(() => {
+        const getList = async () => {
+            const dat = await getDocs(listCollectionRef);
+            setTodos(dat.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+        }
+        getList();
+        setRequiredProduct((todos.filter((item) => item.id === id)))
+    }, [id, todos, listCollectionRef]);
+
 
     return (
-        <section className="p-12 bg-[#141416] my-40">
-            <div className="container flex gap-8 justify-center max-lg:flex-col">
-                <div className="w-full">
-                    <img className="rounded-[16px] mx-auto object-cover min-h-full min-w-[50%] max-h-full max-w-full " src="https://ezway.s3.amazonaws.com/jondo/nft/nft-header-2.jpg" alt="Product-1" />
-                </div>
-                <div className="flex flex-col w-full gap-2">
-                    <h2 className="text-[40px] text-[#FCFCFD]">CHEF MONKEY</h2>
-                    <div className="flex gap-4 font-bold items-center">
-                        <span className="p-1 text-[#45b26b] border-[#45b26b] border-[2px] rounded-[4px]">$155</span>
-                        <span className="text-base text-[#777E90]">5 in stock</span>
-                    </div>
-                    <div className="mt-6 text-base text-[#777E90]">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    </div>
-                    <div className="flex justify-center">
-                        <button className="mt-8 w-[20%] h-[48px] px-[24px] text-bold inline-flex justify-center items-center bg-[#4437ff] text-white ">Buy Now</button>
-                    </div>
-                </div>
-            </div>
+        <div>
+            <NavBar />
+            <section className="p-12 bg-[#141416] my-32">
 
-            <div></div>
-        </section>
+                <div className=''>
+                    {requiredProduct.map((todo) => (
+                        <div key={todo.id}>
+                            <ProductCard image={todo.image} id={todo.id} title={todo.title} price={todo.price} count={todo.count} description={todo.description} />
+                        </div>
+                    ))}
+                </div>
+                <div className='flex flex-row justify-between items-center mt-44 mb-10'>
+                    <h1 className='text-white text-5xl font-semibold'>Related Products</h1>
+                </div>
+                <div className='flex flex-row gap-4 text-white'>
+                    {todos.map((todo) => (
+                        <div key={todo.id}>
+                            <Card image={todo.image} id={todo.id} title={todo.title} price={todo.price} count={todo.count} />
+                        </div>
+                    ))}
+                </div>
+                <div>
+
+                </div>
+            </section>
+        </div>
     )
 }
 export default ProductPage

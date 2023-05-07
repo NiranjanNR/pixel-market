@@ -2,29 +2,22 @@ import React from 'react'
 import Card from '../Card/Card'
 import { useEffect, useState } from 'react'
 import db from '../../firebase'
-import {
-    query,
-    collection,
-    onSnapshot,
-} from 'firebase/firestore';
+import { collection,getDocs } from 'firebase/firestore';
+
 
 const GridCard = () => {
 
     const [todos, setTodos] = useState([]);
 
-    useEffect(() => {
-        const q = query(collection(db, 'digital-art'));
-        const unsubscribe = onSnapshot(q, (querySnapshot) => {
-            let todosArr = [];
+    const listCollectionRef = collection(db , "digital-art");
 
-            querySnapshot.forEach((doc) => {
-                todosArr.push({ ...doc.data(), id: doc.id });
-            });
-            
-            setTodos(todosArr.slice(0,4));
-        });
-        return () => unsubscribe();
-    }, []);
+    useEffect(() => {
+        const getList = async () =>{
+            const dat = await getDocs(listCollectionRef);
+            setTodos(dat.docs.map((doc)=>({...doc.data(),id:doc.id})))
+          }
+          getList();
+    }, [listCollectionRef]);
 
     return (
         <div id="Cards" className='ml-6 overflow-x-scroll text-white'>
@@ -32,7 +25,7 @@ const GridCard = () => {
             <div className='flex flex-row gap-4'>
                 {todos.map((todo) => (
                     <div key={todo.id}>
-                        <Card image={todo.image} name={todo.title} price={todo.price} number={todo.count} />
+                        <Card image={todo.image} id={todo.id} name={todo.title} price={todo.price} number={todo.count} />
                     </div>
                 ))}
             </div>

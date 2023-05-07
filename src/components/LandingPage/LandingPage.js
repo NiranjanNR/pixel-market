@@ -1,7 +1,6 @@
 import React from 'react'
 import NavBar from '../NavBar/NavBar'
 import GridCard from '../GridCard/GridCard'
-import ProductPage from '../ProductPage/ProductPage'
 import Footer from '../Footer/Footer'
 import Explore from '../Explore/Explore'
 
@@ -34,7 +33,6 @@ const LandingPage = () => {
     </div>
     <GridCard/>
     <Explore/>
-    <ProductPage/>
     <Footer/>
     </div>
   )
