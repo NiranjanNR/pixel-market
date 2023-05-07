@@ -4,6 +4,7 @@ import GridCard from '../GridCard/GridCard'
 import Footer from '../Footer/Footer'
 import Explore from '../Explore/Explore'
 import {Link} from 'react-router-dom'
+import FeaturePage from '../FeaturePage/FeaturePage'
 
 
 const LandingPage = () => {
@@ -35,6 +36,8 @@ const LandingPage = () => {
     <h1 className='text-[3rem] text-center text-white min-h-[40px]'>Your Top Collection</h1>
     <GridCard/>
     <Explore/>
+    <h1 className='text-[3rem] text-center text-white min-h-[40px]'>Art on Demand</h1>
+    <FeaturePage/>
     <Footer/>
     </div>
   )
