@@ -1,7 +1,7 @@
 import React from 'react'
 import Card from '../Card/Card'
 import { useEffect, useState } from 'react'
-import { db } from '../../firebase'
+import  db  from '../../firebase'
 import {
     query,
     collection,

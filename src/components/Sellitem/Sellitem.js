@@ -1,5 +1,8 @@
 import React from 'react'
 import { useState } from 'react';
+// import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
+import  db  from '../../firebase.js'
 import Card from '../Card/Card'
 
 const Sellitem = () => {
@@ -16,8 +19,11 @@ const Sellitem = () => {
     });
 
     const [selectedCollection, setSelectedCollection] = useState('');
-
-
+    const [file, setFile] = useState("https://www.cnet.com/a/img/resize/e547a2e4388fcc5ab560f821ac170a59b9fb0143/hub/2021/12/13/d319cda7-1ddd-4855-ac55-9dcd9ce0f6eb/unnamed.png?auto=webp&fit=crop&height=1200&width=1200")
+    function handleFileUpload(e) {
+        console.log(e.target.files);
+        setFile(URL.createObjectURL(e.target.files[0]));
+    }
     const handleChange = (e) => {
         setFormData({
             ...formData,
@@ -25,32 +31,48 @@ const Sellitem = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Perform actions with the form data
-        console.log({
+        try {
+          await db.collection('digital-art').add({
             ...formData,
-            collection: selectedCollection,
+            collection: selectedCollection
           });
-    };
-
+          console.log('Item added to Firestore');
+          setFormData({
+            title: '',
+            description: '',
+            color: '',
+            count: '',
+            seller: '',
+            price: '',
+            royalties: '',
+            collection: '',
+          });
+          setSelectedCollection('');
+        } catch (error) {
+          console.error('Error adding item to Firestore:', error);
+        }
+      };
+    
     return (
         <section id="SellItem" className='flex xl:gap-12 px-8 my-20 text-white'>
             <div className='flex-grow flex flex-col min-h-[100vh]'>
                 <form onSubmit={handleSubmit}>
                     <div className='text-3xl md:text-5xl lg:text-6xl font-semibold tracking-wide pb-2'>Sell single collectible</div>
-                    <div className='text-md text-gray-300 font-semibold pb-2 mt-6'>Upload file</div>
-                    <div className='text-sm text-gray-500 font-normal pb-2 mt-1'>Drag or choose your file to upload</div>
+                    <div className='text-md text-gray-300 font-semibold pb-2 mt-6'>Upload file (Preferred Size: 290px X 540px)</div>
+                    <input className='text-sm text-gray-500 font-normal pb-2 mt-1' type="file" onChange={handleFileUpload}/>
                     <div className='text-sm text-gray-500 font-normal w-full h-[200px] bg-gray-500/25 mt-2 rounded-2xl flex justify-center items-center'>Drag your File Here</div>
                     <div className='text-md text-gray-300 font-semibold pb-2 mt-6'>Item Details</div>
                     <div className='text-sm text-gray-500 font-normal pb-2 '>Item Title</div>
-                    <input className='w-full h-[50px] bg-gray-500/25 rounded-lg px-6 mb-6' type='text' name='title' placeholder='Enter Title' onChange={handleChange} />
+                    <input className='w-full h-[50px] bg-gray-500/25 rounded-lg px-6 mb-6' type='text' name='title' placeholder='Enter Title' onChange={handleChange} required />
                     <div className='text-sm text-gray-500 font-normal pb-2 '>Item Description</div>
                     <input className='w-full h-[50px] bg-gray-500/25 rounded-lg px-6' type='text' name='description' placeholder='Enter Description' onChange={handleChange} />
                     <div className='flex flex-wrap md:flex-nowrap mt-6 gap-4 w-full '>
                         <div className='w-full'>
                             <div className='text-md text-gray-300 font-semibold pb-2 '>Colors</div>
-                            <select className='w-full xl:max-w-[200px] h-[50px] bg-gray-500/25 rounded-lg px-6 focus:ring-0' name='color' onChange={handleChange}>
+                            <select className='w-full xl:max-w-[200px] h-[50px] bg-gray-500/25 rounded-lg px-6 focus:ring-0' name='color' onChange={handleChange} required>
                                 <option className='bg-[#141416] ' value=''>Choose a color</option>
                                 <option className='bg-[#141416]' value='red'>Red</option>
                                 <option className='bg-[#141416]' value='green'>Green</option>
@@ -61,7 +83,7 @@ const Sellitem = () => {
                         </div>
                         <div className='w-full'>
                             <div className='text-md text-gray-300 font-semibold pb-2 '>Count</div>
-                            <input className='w-full xl:max-w-[200px] h-[50px] bg-gray-500/25 rounded-lg px-6' placeholder='Enter Count' type='text' name='count' onChange={handleChange} />
+                            <input className='w-full xl:max-w-[200px] h-[50px] bg-gray-500/25 rounded-lg px-6' placeholder='Enter Count' type='number' name='count' onChange={handleChange} />
                         </div>
                         <div className='w-full'>
                             <div className='text-md text-gray-300 font-semibold pb-2 '>Seller name</div>
@@ -71,7 +93,7 @@ const Sellitem = () => {
                     <div className='border-b border-gray-500/25 pb-6 w-full '>
                         <div className='text-md text-gray-300 font-semibold pb-2 mt-6'>Price</div>
                         <div className='text-sm text-gray-500 font-normal pb-2 '>Set your price</div>
-                        <input className='w-full h-[50px] bg-gray-500/25 rounded-lg px-6 mb-6' placeholder='Enter Price' type='text' name='price' onChange={handleChange} />
+                        <input className='w-full h-[50px] bg-gray-500/25 rounded-lg px-6 mb-6' placeholder='Enter Price' type='number' name='price' onChange={handleChange} required/>
                         <div className='text-sm text-gray-500 font-normal pb-2 '>Royalties</div>
                         <input className=' w-full h-[50px] bg-gray-500/25 rounded-lg px-6' placeholder='Enter Royalties' type='text' name='royalties' onChange={handleChange} />
                     </div>
@@ -104,7 +126,7 @@ const Sellitem = () => {
                 </form>
             </div>
             <div className='flex justify-center max-xl:hidden'>
-                <Card image={"https://www.cnet.com/a/img/resize/e547a2e4388fcc5ab560f821ac170a59b9fb0143/hub/2021/12/13/d319cda7-1ddd-4855-ac55-9dcd9ce0f6eb/unnamed.png?auto=webp&fit=crop&height=1200&width=1200"} name={"NFT"} price={19} number={3} />
+                <Card image={file} name={formData['title']} price={formData['price']} number={formData['count']} />
             </div>
         </section>
     )
