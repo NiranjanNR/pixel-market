@@ -101,22 +101,22 @@ const Sellitem = () => {
                     <div className='text-sm text-gray-500 font-normal pb-2 '>Choose an exiting Categories</div>
                     <div className='flex max-md:flex-wrap gap-6 mt-6 w-full '>
                         <div className='w-full'>
-                            <div className={`h-[100px] rounded-lg px-6 flex items-center justify-center ${selectedCollection === 'sale' ? 'bg-cyan-500' : 'bg-gray-500/25'}`} onClick={() => setSelectedCollection('sale')}>
+                            <div className={`h-[100px] rounded-lg px-6 flex items-center justify-center cursor-pointer ${selectedCollection === 'sale' ? 'bg-cyan-500' : 'bg-gray-500/25'}`} onClick={() => { selectedCollection !== 'sale' ? setSelectedCollection('sale') : setSelectedCollection('') }}>
                                 Sale
                             </div>
                         </div>
                         <div className='w-full'>
-                            <div className={`h-[100px] rounded-lg px-6 flex items-center justify-center ${selectedCollection === 'offers' ? 'bg-cyan-500' : 'bg-gray-500/25'}`} onClick={() => setSelectedCollection('offers')}>
+                            <div className={`h-[100px] rounded-lg px-6 flex items-center justify-center cursor-pointer ${selectedCollection === 'offers' ? 'bg-cyan-500' : 'bg-gray-500/25'}`} onClick={() => { selectedCollection !== 'offers' ? setSelectedCollection('offers') : setSelectedCollection('') }}>
                                 Offers
                             </div>
                         </div>
                         <div className='w-full'>
-                            <div className={`h-[100px] rounded-lg px-6 flex items-center justify-center ${selectedCollection === 'cosmos' ? 'bg-cyan-500' : 'bg-gray-500/25'}`} onClick={() => setSelectedCollection('cosmos')}>
+                            <div className={`h-[100px] rounded-lg px-6 flex items-center justify-center cursor-pointer ${selectedCollection === 'cosmos' ? 'bg-cyan-500' : 'bg-gray-500/25'}`} onClick={() => { selectedCollection !== 'cosmos' ? setSelectedCollection('cosmos') : setSelectedCollection('') }}>
                                 Cosmos
                             </div>
                         </div>
                         <div className='w-full'>
-                            <div className={`h-[100px] rounded-lg px-6 flex items-center justify-center ${selectedCollection === 'artwork' ? 'bg-cyan-500' : 'bg-gray-500/25'}`} onClick={() => setSelectedCollection('artwork')}>
+                            <div className={`h-[100px] rounded-lg px-6 flex items-center justify-center cursor-pointer ${selectedCollection === 'artwork' ? 'bg-cyan-500' : 'bg-gray-500/25'}`} onClick={() => { selectedCollection !== 'artwork' ? setSelectedCollection('artwork') : setSelectedCollection('') }}>
                                 Artwork
                             </div>
                         </div>
