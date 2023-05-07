@@ -68,3 +68,6 @@ To further accomodate our tasks, we decided to use services that offer scalablit
 
 ![image](https://user-images.githubusercontent.com/73242028/236669071-cb6f4bf3-d2b5-4679-a349-ca67f0cd27c5.png)
 
+![image](https://user-images.githubusercontent.com/73242028/236669125-90c1e11d-8292-41aa-b8f1-98ce7e31cea0.png)
+
+![image](https://user-images.githubusercontent.com/73242028/236669232-49229900-5e0e-42f5-a201-167cbfb692cd.png)
