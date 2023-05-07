@@ -5,16 +5,18 @@ import GridCard from './components/GridCard/GridCard'
 import Explore from './components/Explore/Explore'
 import ProductPage from './components/ProductPage/ProductPage'
 import Footer from './components/Footer/Footer'
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 const App = () => {
   return (
     <div>
-        <LandingPage />
-        <GridCard />
-        <Explore />
-        <ProductPage />
-        <Sellitem />
-        <Footer />
+       
+        <Router>
+<Routes>
+<Route path="/" element={<LandingPage />} />
+        <Route path="/sellitem" element={<Sellitem />} />
+</Routes>
+    </Router>
         
     </div>
   )
