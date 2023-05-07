@@ -28,7 +28,7 @@ const GridCard = () => {
         <div id="Cards" className='ml-6 overflow-x-scroll text-white'>
             <div className='flex flex-row gap-4'>
                 {todos.map((todo) => (
-                    <div>
+                    <div key={todo.id}>
                         <Card image={todo.image} name={todo.name} price={todo.price} number={todo.number} />
                     </div>
                 ))}
