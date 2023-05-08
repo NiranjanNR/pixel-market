@@ -4,20 +4,20 @@ import { useEffect, useState } from 'react'
 import db from '../../firebase'
 import { collection,getDocs } from 'firebase/firestore';
 
-
 const GridCard = () => {
 
     const [todos, setTodos] = useState([]);
 
-    const listCollectionRef = collection(db , "digital-art");
-
     useEffect(() => {
-        const getList = async () =>{
+        const getList = async () => {
+            const listCollectionRef = collection(db, 'digital-art');
             const dat = await getDocs(listCollectionRef);
-            setTodos(dat.docs.map((doc)=>({...doc.data(),id:doc.id})))
-          }
-          getList();
-    }, [listCollectionRef]);
+            setTodos(dat.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+        };
+
+        getList();
+    }, []);
+
 
     return (
         <div id="Cards" className='ml-6 overflow-x-scroll text-white'>

@@ -15,17 +15,19 @@ const ProductPage = () => {
     const [todos, setTodos] = useState([]);
     const [requiredProduct, setRequiredProduct] = useState([])
 
-    const listCollectionRef = collection(db, "digital-art");
+  useEffect(() => {
+    const getList = async () => {
+      const querySnapshot = await getDocs(collection(db, 'digital-art'));
+      const todosArr = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+      setTodos(todosArr);
+    };
 
-    useEffect(() => {
-        const getList = async () => {
-            const dat = await getDocs(listCollectionRef);
-            setTodos(dat.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
-        }
-        getList();
-        setRequiredProduct((todos.filter((item) => item.id === id)))
-    }, [id, todos, listCollectionRef]);
+    getList();
+  }, []);
 
+  useEffect(() => {
+    setRequiredProduct(todos.filter((item) => item.id === id));
+  }, [id, todos]);
 
     return (
         <div>
