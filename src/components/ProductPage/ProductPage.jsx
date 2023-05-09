@@ -44,7 +44,7 @@ const ProductPage = () => {
                 <div className='flex flex-row justify-between items-center mt-44 mb-10'>
                     <h1 className='text-white text-5xl font-semibold'>Related Products</h1>
                 </div>
-                <div className='flex flex-row gap-4 text-white'>
+                <div className='flex flex-row gap-4 text-white overflow-x-scroll'>
                     {todos.map((todo) => (
                         <div key={todo.id}>
                             <Card image={todo.image} id={todo.id} title={todo.title} price={todo.price} count={todo.count} />

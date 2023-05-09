@@ -20,12 +20,12 @@ const GridCard = () => {
 
 
     return (
-        <div id="Cards" className='ml-6 overflow-x-scroll text-white'>
-            <div className=' text-5xl ml-8 font-semibold tracking-wide pb-2 mb-16 flex justify-center md:text-left'>Your Digital Art</div>
-            <div className='flex flex-row gap-4'>
+        <div id="Cards" className='ml-6 text-white'>
+            <div className=' text-5xl font-semibold tracking-wide pb-2 mb-16 flex justify-center md:text-left'>Your Digital Art</div>
+            <div className='overflow-x-scroll flex flex-row gap-4'>
                 {todos.map((todo) => (
                     <div key={todo.id}>
-                        <Card image={todo.image} id={todo.id} title={todo.title} price={todo.price} count={todo.count} />
+                        <Card image={todo.image} id={todo.id} title={todo.title || todo.name || "Title"} price={todo.price} count={todo.count || todo.number || "0"} />
                     </div>
                 ))}
             </div>

@@ -3,14 +3,14 @@ import React from "react";
 const FeaturePage = () => {
  
     return (
-      <section className=" bg-[#141416] my-40  ">
+      <section className="px-12 bg-[#141416] my-40  ">
         <div className="container flex gap-8 max-lg:flex-col ">
        
             <>
               <div className="">
                 <img
                   className="lg:w-[490px] lg:h-[600px] w-[190px] h-[300px] object-cover rounded-xl mx-auto"
-                  src='https://www.cnet.com/a/img/resize/e547a2e4388fcc5ab560f821ac170a59b9fb0143/hub/2021/12/13/d319cda7-1ddd-4855-ac55-9dcd9ce0f6eb/unnamed.png?auto=webp&fit=crop&height=1200&width=1200'
+                  src='https://ezway.s3.amazonaws.com/jondo/nft/nft-header-2.jpg'
                   alt='hello'
                 />
               </div>

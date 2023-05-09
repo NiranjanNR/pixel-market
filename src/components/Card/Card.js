@@ -6,12 +6,12 @@ const Card = (props) => {
     return (
        <Link to={`/product/${props.id}`}>
          <button className=''>
-            <div className="w-[290px] h-[570px] rounded-xl flex justify-center m-6 bg-mine">
+            <div className="w-[290px] rounded-xl flex justify-center m-6 bg-mine">
                 <div>
                     <div className='pb-4 border-b border-gray-500/60'>
                         <img src={props.image} alt="" className="w-[290px] h-[400px] object-cover rounded-xl" />
                     </div>
-                    <div className="pt-4 flex ">
+                    <div className="text-left pt-4 flex ">
                         <div className='h-[60px] w-[200px]'>
                             <div className='text-md text-gray-300 font-semibold '>{props.title}</div>
                             <div className='text-md text-gray-500 font-normal '>{props.count} items</div>

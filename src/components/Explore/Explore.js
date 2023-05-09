@@ -30,12 +30,12 @@ const Explore = () => {
         <div className='mt-5 lg:flex justify-center'>
           {todos && todos.length > 0 && (
             <div className="mx-4">
-              <Cardbig key={todos[0].id} image={todos[0].image} name={todos[0].name} price={todos[0].price} number={todos[0].number} />
+              <Cardbig key={todos[0].id} image={todos[0].image} name={todos[0].name || todos.title || "Title"} price={todos[0].price} number={todos[0].number || todos.count || "0"} />
             </div>
           )}
           <div className="flex flex-col">
             {todos && todos.length > 1 && todos.slice(1).map((todo, index) => (
-              <Cardsmall key={todo.id} image={todo.image} name={todo.name} price={todo.price} number={todo.number} />
+              <Cardsmall key={todo.id} image={todo.image} name={todo.name || todo.title || "Title"} price={todo.price} number={todo.number || todo.count || "0"} />
             ))}
           </div>
         </div>
