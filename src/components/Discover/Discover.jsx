@@ -16,21 +16,19 @@ const Discover = () => {
     const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(() => {
-        const q = query(
-            collection(db, 'digital-art'),
-            orderBy('title'),
-            where('title', '>=', searchTerm),
-            where('title', '<=', searchTerm + '\uf8ff')
-        );
 
-        const unsubscribe = onSnapshot(q, (querySnapshot) => {
-            let todosArr = [];
+
+        const unsubscribe = onSnapshot(collection(db, 'digital-art'), (querySnapshot) => {
+            const todosArr = [];
 
             querySnapshot.forEach((doc) => {
-                todosArr.push({ ...doc.data(), id: doc.id });
+                const data = doc.data();
+                if (data.title.toLowerCase().includes(searchTerm.toLowerCase())) {
+                    todosArr.push({ ...data, id: doc.id });
+                  }
             });
 
-            setTodos(todosArr.slice(0, 4));
+            setTodos(todosArr);
         });
 
         return () => unsubscribe();
@@ -64,9 +62,9 @@ const Discover = () => {
                         <Card
                             key={todo.id}
                             image={todo.image}
-                            name={todo.title}
+                            title={todo.title || todo.name || "Title"}
                             price={todo.price}
-                            number={todo.count}
+                            count={todo.count || todo.number || "0"}
                         />
                     ))}
                 </div>
