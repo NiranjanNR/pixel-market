@@ -4,11 +4,8 @@ import NavBar from '../NavBar/NavBar';
 import Card from '../Card/Card';
 import db from '../../firebase';
 import {
-    query,
     collection,
     onSnapshot,
-    where,
-    orderBy,
 } from 'firebase/firestore';
 
 const Discover = () => {
